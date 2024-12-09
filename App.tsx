@@ -13,6 +13,7 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+import * as S from './AppStyle';
 
 import Logo from './src/asset/Indiv.png';
 
@@ -71,7 +72,7 @@ function App(): React.JSX.Element {
             width: width * 0.5,
           }}
         />
-
+        <S.TextCustom>hi</S.TextCustom>
         <Text
           onPress={() => {
             Alert.alert('custom btn');

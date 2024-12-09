@@ -22,6 +22,7 @@ React Native는 div, p이딴거 없음 자기들이 지정해준걸로 써야됨
 ```
 1. <View></View>
 - div 태그 대용
+- 안에 Text못씀 Text태그 써야 쓸 수 있음
 
 2. <Text></Text>
 - p 태그 대용

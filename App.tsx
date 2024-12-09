@@ -1,5 +1,7 @@
 import React from 'react';
 import {
+  Dimensions,
+  Image,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -8,6 +10,10 @@ import {
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+import Logo from './src/asset/Indiv.png';
+
+const {width, height} = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   largeText: {
@@ -30,14 +36,26 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView style={backgroundStyle}>
-      <View style={{width: '100%', height: '100%', backgroundColor: 'yellow'}}>
+      <View
+        style={{
+          width: '100%',
+          height: '100%',
+          backgroundColor: 'yellow',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <Image
+          source={Logo}
+          style={{width: width * 0.5, height: width * 0.5, marginBottom: 20}}
+        />
         <Text
           style={{
             ...styles.largeText,
-            backgroundColor: 'white',
-            margin: 'auto',
-            textAlign: 'center',
             fontWeight: '600',
+            display: 'flex',
+            flexDirection: 'column',
+            textAlign: 'center',
           }}>
           React Native 정복기
         </Text>

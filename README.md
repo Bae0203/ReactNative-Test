@@ -28,7 +28,22 @@ React Native는 div, p이딴거 없음 자기들이 지정해준걸로 써야됨
 - img 태그 대용
 - src가 아닌 source로 써야 작동(이미지 불러오는건 동일함(import로 불러서 안에 넣으면 됨))
 - react-app-env.d.ts 파일, image.d.ts 파일 필요
+
+4. <Button />
+- button 태그 대용
+- 엄청 특이한게 단 태그임
+- onClick => onPress
+- 스타일링 안먹힘(할거면 커스텀해서 써야됨)
+
+5. <TextInput />
+- input 태그 대용
+- 좀 이상한게 width를 안 정해주면 지들 알아서 정해버림(글자에 따라 width가 달라짐)
+- OnChange => OnChangeText
 ```
+
+그외 팁<br/>
+
+1. Alert쓸거면 Alert.[alert, prompt] 이렇게 쓸 수 있음
 
 ## 스타일링 관련
 
@@ -51,7 +66,7 @@ const styles = StyleSheet.create({
 
 ### 그래서 나온 화면 너비에 맞춘 스타일링
 
-`const {width, height} = Dimensions.get('window');`
-이걸로 화면 너비를 구해올 수 있음
-`style={{width: width * 0.5, height: width * 0.5, marginBottom: 20}}`
-이런 식으로 사용 가능
+`const {width, height} = Dimensions.get('window');`<br/>
+이걸로 화면 너비를 구해올 수 있음<br/>
+`style={{width: width * 0.5, height: width * 0.5, marginBottom: 20}}`<br/>
+이런 식으로 사용 가능<br/>

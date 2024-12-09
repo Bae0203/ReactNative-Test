@@ -1,10 +1,13 @@
 import React from 'react';
 import {
+  Alert,
+  Button,
   Dimensions,
   Image,
   SafeAreaView,
   StyleSheet,
   Text,
+  TextInput,
   useColorScheme,
   View,
 } from 'react-native';
@@ -59,6 +62,37 @@ function App(): React.JSX.Element {
           }}>
           React Native 정복기
         </Text>
+
+        <TextInput
+          placeholder="입력해주세용"
+          style={{
+            textAlign: 'left',
+            backgroundColor: 'white',
+            width: width * 0.5,
+          }}
+        />
+
+        <Text
+          onPress={() => {
+            Alert.alert('custom btn');
+          }}
+          style={{
+            padding: 10,
+            paddingLeft: 20,
+            paddingRight: 20,
+            margin: 6,
+            backgroundColor: 'blue',
+            color: 'white',
+            fontWeight: '600',
+          }}>
+          hi
+        </Text>
+        <Button
+          title="test"
+          onPress={() => {
+            Alert.alert('button test');
+          }}
+        />
       </View>
     </SafeAreaView>
   );

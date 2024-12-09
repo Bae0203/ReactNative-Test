@@ -1,79 +1,57 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native 적응기
 
-# Getting Started
+## 기본 설정 (node는 깔려있다고 가정)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+1. watchman 설치
+2. Android Studio 설치 - sdk manager에서 세팅 해야됨
+3. React Native CLI 설치 - global로 설치
+4. npx react-native init [이름] 으로 기본 앱 설치
+5. .zshrc 파일 설정
+6. 실행
 
-## Step 1: Start the Metro Server
+### 실행 방법
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+`npx react-native run-android`
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## 주요 컴포넌트 목록
 
-```bash
-# using npm
-npm start
+React Native는 div, p이딴거 없음 자기들이 지정해준걸로 써야됨
 
-# OR using Yarn
-yarn start
+```
+1. <View></View>
+- div 태그 대용
+
+2. <Text></Text>
+- p 태그 대용
+
+3. <Image />
+- img 태그 대용
+- src가 아닌 source로 써야 작동(이미지 불러오는건 동일함(import로 불러서 안에 넣으면 됨))
+- react-app-env.d.ts 파일, image.d.ts 파일 필요
 ```
 
-## Step 2: Start your Application
+## 스타일링 관련
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+```
+const styles = StyleSheet.create({
+  largeText: {
+    fontSize: 32,
+  },
+  mediumText: {
+    fontSize: 20,
+  },
+  smallText: {
+    fontSize: 12,
+  },
+});
 ```
 
-### For iOS
+이런식으로 따로 지정해서 style에 넣거나 style에 바로 때려박아야됨(styled-components는 알아서)<br/>
+주의 사항 : px, rem 이런 단위를 모름 그냥 숫자 때려 박아야됨<br/>
 
-```bash
-# using npm
-npm run ios
+### 그래서 나온 화면 너비에 맞춘 스타일링
 
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+`const {width, height} = Dimensions.get('window');`
+이걸로 화면 너비를 구해올 수 있음
+`style={{width: width * 0.5, height: width * 0.5, marginBottom: 20}}`
+이런 식으로 사용 가능

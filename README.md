@@ -70,3 +70,10 @@ const styles = StyleSheet.create({
 이걸로 화면 너비를 구해올 수 있음<br/>
 `style={{width: width * 0.5, height: width * 0.5, marginBottom: 20}}`<br/>
 이런 식으로 사용 가능<br/>
+
+## 킹왕짱 styled-components
+
+사용하기 전에 React, React-Dom 버전이 18인지 확인부터 해야됨(아니면 애러나서 안깔림)<br/>
+참고로 설치하는 방법은 react와 동일함 `npm i styled-components`<br/>
+사용하는 방법도 동일함, 근데 styled import할때 <br/>
+`...'styled-components/native'`이렇게 뒤에 /native를 붙여줘야 작동함
